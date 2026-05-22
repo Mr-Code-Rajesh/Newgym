@@ -70,18 +70,18 @@ export default function Pricing() {
   ];
 
   return (
-    <section 
-      id="pricing" 
+    <section
+      id="pricing"
       className="w-full py-20 px-6 relative bg-black border-t border-zinc-900 overflow-hidden select-none"
     >
       {/* Background radial matrix texture overlays */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-zinc-950/20 via-black to-black opacity-80 pointer-events-none" />
-      
+
       {/* Dot grid texture overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808006_1px,transparent_1px),linear-gradient(to_bottom,#80808006_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 text-left">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-6 mb-12">
           <div className="max-w-xl">
@@ -103,21 +103,19 @@ export default function Pricing() {
           <div className="flex items-center gap-1.5 p-1 rounded-xl bg-zinc-950 border border-white/[0.04] shrink-0">
             <button
               onClick={() => setBillingCycle("monthly")}
-              className={`px-4 py-2 rounded-lg text-[9.5px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none ${
-                billingCycle === "monthly"
+              className={`px-4 py-2 rounded-lg text-[9.5px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none ${billingCycle === "monthly"
                   ? "bg-red-600 text-white shadow-[0_0_10px_rgba(239,68,68,0.25)]"
                   : "text-zinc-500 hover:text-zinc-350"
-              }`}
+                }`}
             >
               Monthly Cycle
             </button>
             <button
               onClick={() => setBillingCycle("annual")}
-              className={`px-4 py-2 rounded-lg text-[9.5px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none ${
-                billingCycle === "annual"
+              className={`px-4 py-2 rounded-lg text-[9.5px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none ${billingCycle === "annual"
                   ? "bg-red-600 text-white shadow-[0_0_10px_rgba(239,68,68,0.25)]"
                   : "text-zinc-500 hover:text-zinc-350"
-              }`}
+                }`}
             >
               Annual Cycle (-20%)
             </button>
@@ -134,11 +132,10 @@ export default function Pricing() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`relative rounded-3xl p-6 flex flex-col justify-between border backdrop-blur-md transition-all duration-300 ${
-                  plan.isPopular
+                className={`relative rounded-3xl p-6 flex flex-col justify-between border backdrop-blur-md transition-all duration-300 ${plan.isPopular
                     ? "bg-zinc-950/65 border-red-500/35 shadow-[0_0_30px_rgba(239,68,68,0.05)] scale-102"
                     : "bg-zinc-950/40 border-zinc-200/5 dark:border-white/[0.04] hover:border-zinc-800 dark:hover:border-white/[0.1]"
-                }`}
+                  }`}
               >
                 {/* Popular red indicator glow border */}
                 {plan.isPopular && (
@@ -174,9 +171,8 @@ export default function Pricing() {
                   <ul className="flex flex-col gap-3.5 border-t border-zinc-200/5 dark:border-white/[0.03] pt-5 mb-8">
                     {plan.features.map((feature, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2.5 text-[10px] text-zinc-400 font-semibold leading-snug">
-                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
-                          plan.isPopular ? "bg-red-500/10 text-red-500 border border-red-500/20" : "bg-zinc-900 text-zinc-500 border border-white/[0.04]"
-                        }`}>
+                        <span className={`w-3.5 h-3.5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${plan.isPopular ? "bg-red-500/10 text-red-500 border border-red-500/20" : "bg-zinc-900 text-zinc-500 border border-white/[0.04]"
+                          }`}>
                           <FiCheck size={8} />
                         </span>
                         <span>{feature}</span>
@@ -189,11 +185,10 @@ export default function Pricing() {
                 <motion.button
                   whileHover={{ scale: 1.02, boxShadow: plan.isPopular ? "0 0 20px rgba(239,68,68,0.25)" : "none" }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full py-3.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none border ${
-                    plan.isPopular
+                  className={`w-full py-3.5 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all duration-300 cursor-pointer outline-none border ${plan.isPopular
                       ? "bg-red-600 border-red-500 text-white shadow-[0_0_15px_rgba(239,68,68,0.15)]"
                       : "bg-zinc-900/60 border-white/[0.04] text-zinc-300 hover:text-white hover:bg-zinc-850"
-                  }`}
+                    }`}
                 >
                   {plan.ctaText}
                 </motion.button>

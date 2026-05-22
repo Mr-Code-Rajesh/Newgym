@@ -34,7 +34,7 @@ const itemVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 260,
       damping: 25,
     },
@@ -87,8 +87,8 @@ export default function ProductGrid({
                   setSelectedCategory(category)
                 }
                 className={`px-4 py-2 rounded-xl text-[9.5px] font-black uppercase tracking-widest border transition-all duration-300 outline-none cursor-pointer shrink-0 ${isActive
-                    ? "bg-red-600 border-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.3)]"
-                    : "bg-white dark:bg-zinc-900/50 border-zinc-200 dark:border-white/[0.04] text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white"
+                  ? "bg-red-600 border-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.3)]"
+                  : "bg-white dark:bg-zinc-900/50 border-zinc-200 dark:border-white/[0.04] text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white"
                   }`}
               >
                 {category}

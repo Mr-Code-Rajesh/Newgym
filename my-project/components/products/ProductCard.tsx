@@ -56,20 +56,20 @@ export default function ProductCard({ product }: ProductCardProps) {
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-108"
             priority={product.id <= 3}
           />
-          
+
           {/* Overlays / Badges */}
           <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10">
             {product.isHot && <ProductBadge type="hot" />}
             {product.discount && <ProductBadge type="discount" value={product.discount} />}
           </div>
-          
+
           <div className="absolute top-3 right-3 z-10">
             <ProductBadge type="rating" value={product.rating} />
           </div>
 
           {/* Quick Preview Slide Overlay */}
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all duration-300">
-            <motion.span 
+            <motion.span
               className="px-4 py-2 rounded-xl bg-zinc-950/80 border border-white/[0.08] backdrop-blur-md text-[9px] font-black uppercase tracking-widest text-white flex items-center gap-1.5 translate-y-3 group-hover:translate-y-0 transition-transform duration-350"
             >
               Examine Spec Sheet <FiArrowRight size={10} />
@@ -110,11 +110,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               <button
                 onClick={handleAddToCart}
                 disabled={isAdded}
-                className={`py-2 px-3 rounded-lg border text-[8.5px] font-black uppercase tracking-widest flex items-center justify-center gap-1.5 transition-all duration-300 outline-none cursor-pointer ${
-                  isAdded
+                className={`py-2 px-3 rounded-lg border text-[8.5px] font-black uppercase tracking-widest flex items-center justify-center gap-1.5 transition-all duration-300 outline-none cursor-pointer ${isAdded
                     ? "bg-emerald-600 border-emerald-500 text-white shadow-[0_0_10px_rgba(16,185,129,0.3)]"
                     : "bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-900 dark:hover:bg-zinc-850 border-zinc-200 dark:border-white/[0.04] text-zinc-800 dark:text-zinc-300 hover:text-red-500 dark:hover:text-red-400"
-                }`}
+                  }`}
               >
                 <AnimatePresence mode="wait">
                   {isAdded ? (
