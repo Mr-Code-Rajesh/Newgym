@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiSearch, FiSliders } from "react-icons/fi";
 
 import { Product } from "@/data/products";
@@ -11,30 +11,38 @@ interface ProductGridProps {
   products: Product[];
 }
 
-const CATEGORIES = ["All", "Supplements", "Accessories", "Gear"];
+const CATEGORIES = [
+  "All",
+  "Supplements",
+  "Accessories",
+  "Gear",
+];
 
-const containerVariants: Variants = {
+const containerVariants = {
   hidden: {
     opacity: 0,
   },
+
   show: {
     opacity: 1,
+
     transition: {
       staggerChildren: 0.05,
     },
   },
 };
 
-const itemVariants: Variants = {
+const itemVariants = {
   hidden: {
     opacity: 0,
     y: 20,
   },
+
   show: {
     opacity: 1,
     y: 0,
+
     transition: {
-      type: "spring" as const,
       stiffness: 260,
       damping: 25,
     },
@@ -65,7 +73,9 @@ export default function ProductGrid({
           .toLowerCase()
           .includes(searchQuery.toLowerCase());
 
-      return matchesCategory && matchesSearch;
+      return (
+        matchesCategory && matchesSearch
+      );
     }
   );
 
@@ -87,8 +97,8 @@ export default function ProductGrid({
                   setSelectedCategory(category)
                 }
                 className={`px-4 py-2 rounded-xl text-[9.5px] font-black uppercase tracking-widest border transition-all duration-300 outline-none cursor-pointer shrink-0 ${isActive
-                  ? "bg-red-600 border-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.3)]"
-                  : "bg-white dark:bg-zinc-900/50 border-zinc-200 dark:border-white/[0.04] text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white"
+                    ? "bg-red-600 border-red-500 text-white shadow-[0_0_10px_rgba(239,68,68,0.3)]"
+                    : "bg-white dark:bg-zinc-900/50 border-zinc-200 dark:border-white/[0.04] text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-white"
                   }`}
               >
                 {category}
@@ -123,7 +133,7 @@ export default function ProductGrid({
             key={
               selectedCategory + searchQuery
             }
-            variants={containerVariants}
+            variants={containerVariants as any}
             initial="hidden"
             animate="show"
             exit="hidden"
@@ -132,9 +142,11 @@ export default function ProductGrid({
             {filteredProducts.map((product) => (
               <motion.div
                 key={product.id}
-                variants={itemVariants}
+                variants={itemVariants as any}
               >
-                <ProductCard product={product} />
+                <ProductCard
+                  product={product}
+                />
               </motion.div>
             ))}
           </motion.div>
@@ -164,7 +176,8 @@ export default function ProductGrid({
 
             <p className="text-[9.5px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-widest leading-relaxed max-w-[280px]">
               No fitness compounds or accessories
-              match your selected telemetry query.
+              match your selected telemetry
+              query.
             </p>
           </motion.div>
         )}
